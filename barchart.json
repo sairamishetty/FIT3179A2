@@ -1,10 +1,11 @@
-var vg_1 = {
+{
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+     "title": "Net Energy Supply in Australia Over Time",
     "description": "Time series graph representing net energy supply over time",
     "width": 600,
     "height": 400,
     "data": {
-      "url": "data.csv"
+      "url": "https://raw.githubusercontent.com/sairamishetty/FIT3179A2/main/data.csv?token=GHSAT0AAAAAACXKRDF3D5NNI2BAHGEL4EXIZXBIZ7Q"
     },
     "mark": "line",
     "encoding": {
@@ -19,10 +20,6 @@ var vg_1 = {
         "type": "quantitative",
         "title": "Net Energy Supply (PJ)"
       }
-    },
-    "title": "Net Energy Supply in Australia Over Time"
-  };
-  
-  vegaEmbed("#bar_chart", vg_1).then(function(result) {
-    console.log("Chart rendered successfully.");
-  }).catch(console.error);
+    }
+   
+  }
