@@ -1,25 +1,20 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-     "title": "Net Energy Supply in Australia Over Time",
-    "description": "Time series graph representing net energy supply over time",
-    "width": 600,
-    "height": 400,
-    "data": {
-      "url": "https://raw.githubusercontent.com/sairamishetty/FIT3179A2/main/data.csv?token=GHSAT0AAAAAACXKRDF3D5NNI2BAHGEL4EXIZXBIZ7Q"
-    },
-    "mark": "line",
-    "encoding": {
-      "x": {
-        "field": "Date",
-        "type": "temporal",
-        "timeUnit": "yearmonth",
-        "axis": {"format": "%b %Y", "title": "Date"}
-      },
-      "y": {
-        "field": "Net energy supply/use - total",
-        "type": "quantitative",
-        "title": "Net Energy Supply (PJ)"
-      }
-    }
-   
-  }
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Energy Usuage Across Australia.",
+  "data": {"url": "https://raw.githubusercontent.com/sairamishetty/FIT3179A2/main/data.csv"},
+
+  "mark": "line",
+  "encoding": {
+    "x": {"field": "Date", "type": "temporal"},
+    "y": {"field": "Energy", "type": "quantitative"},
+    "color": {"field": "EnergyType", "type": "nominal"}
+  },
+  "transform": [
+    {"fold": [
+      "Energy from natural inputs - brown coal",
+      "Energy from natural inputs - black coal",
+      "Energy from natural inputs - natural gas",
+      "Energy from natural inputs - crude oil and condensates"
+    ], "as": ["EnergyType", "Energy"]}
+  ]
+}
