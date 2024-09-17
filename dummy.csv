@@ -1,4 +1,5 @@
 [
+  {"Parent": null, "Child": "Energy", "Value": 0},
   {"Parent": "Energy", "Child": "Renewable", "Value": 100},
   {"Parent": "Energy", "Child": "Fossil Fuel", "Value": 200},
   {"Parent": "Renewable", "Child": "Solar", "Value": 50},
