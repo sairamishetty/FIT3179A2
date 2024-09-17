@@ -1,9 +1,11 @@
 [
-  {"Parent": null, "Child": "Energy"},
-  {"Parent": "Energy", "Child": "Renewable", "Value": 100},
-  {"Parent": "Energy", "Child": "Fossil Fuel", "Value": 200},
-  {"Parent": "Renewable", "Child": "Solar", "Value": 50},
-  {"Parent": "Renewable", "Child": "Wind", "Value": 50},
-  {"Parent": "Fossil Fuel", "Child": "Coal", "Value": 100},
-  {"Parent": "Fossil Fuel", "Child": "Oil", "Value": 100}
+{"id": 1, "name": "Australia", "parent": null},
+          {"id": 2, "name": "Coal", "parent": 1, "value": 133591},
+          {"id": 3, "name": "Oil", "parent": 1, "value": 4664},
+          {"id": 4, "name": "Natural gas", "parent": 1, "value": 49280},
+          {"id": 5, "name": "Biofuels", "parent": 1, "value": 3190},
+          {"id": 6, "name": "Hydro", "parent": 1, "value": 17010},
+          {"id": 7, "name": "Solar PV", "parent": 1, "value": 34682},
+          {"id": 8, "name": "Solar thermal", "parent": 1, "value": 3},
+          {"id": 9, "name": "Wind", "parent": 1, "value": 29107}
 ]
