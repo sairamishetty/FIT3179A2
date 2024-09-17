@@ -42,7 +42,7 @@ Chile,CHL,56.40
 China,CHN,72.96
 Cote d'Ivoire,CIV,83.27
 Cameroon,CMR,23.88
-"Dem. Rep. Congo, Dem. Rep.",COD,0.18
+"Dem. Rep. Congo,COD,0.18
 "Congo, Rep.",COG,46.66
 Colombia,COL,31.76
 Comoros,COM,
@@ -66,7 +66,7 @@ East Asia & Pacific,EAS,74.57
 Europe & Central Asia (excluding high income),ECA,65.39
 Europe & Central Asia,ECS,48.97
 Ecuador,ECU,47.20
-"Egypt, Arab Rep.",EGY,91.74
+Egypt,EGY,91.74
 Euro area,EMU,40.68
 Eritrea,ERI,99.51
 Spain,ESP,44.07
@@ -125,7 +125,7 @@ Kyrgyz Republic,KGZ,14.81
 Cambodia,KHM,53.58
 Kiribati,KIR,
 St. Kitts and Nevis,KNA,
-"Korea, Rep.",KOR,67.72
+South Korea,KOR,67.72
 Kuwait,KWT,100.00
 Latin America & Caribbean (excluding high income),LAC,44.66
 Lao PDR,LAO,
@@ -192,7 +192,7 @@ Papua New Guinea,PNG,
 Poland,POL,86.08
 Pre-demographic dividend,PRE,39.51
 Puerto Rico,PRI,
-"Korea, Dem. People's Rep.",PRK,27.20
+North Korea,PRK,27.20
 Portugal,PRT,51.87
 Paraguay,PRY,0.00
 West Bank and Gaza,PSE,
@@ -201,7 +201,7 @@ Post-demographic dividend,PST,56.73
 French Polynesia,PYF,
 Qatar,QAT,100.00
 Romania,ROU,42.60
-Russian,RUS,65.48
+Russia,RUS,65.48
 Rwanda,RWA,
 South Asia,SAS,79.98
 Saudi Arabia,SAU,76.21
@@ -254,7 +254,7 @@ Uruguay,URY,11.44
 United States of America,USA,67.08
 Uzbekistan,UZB,79.35
 St. Vincent and the Grenadines,VCT,
-Venezuela, RB,VEN,36.30
+Venezuela,VEN,36.30
 British Virgin Islands,VGB,
 Virgin Islands (U.S.),VIR,
 Viet Nam,VNM,63.27
@@ -262,7 +262,7 @@ Vanuatu,VUT,
 World,WLD,65.20
 Samoa,WSM,
 Kosovo,XKX,97.71
-Yemen, Rep.",YEM,100.00
+Yemen,YEM,100.00
 South Africa,ZAF,92.79
 Zambia,ZMB,3.01
 Zimbabwe,ZWE,47.28
