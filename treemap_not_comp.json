@@ -1,0 +1,83 @@
+{
+    "$schema": "https://vega.github.io/schema/vega/v5.json",
+    "width": 600,
+    "height": 400,
+    "padding": 5,
+    "title": "Australia's Electricity Generation 2022 (GWh)",
+    "data": [
+      {
+        "name": "table",
+        "values": [
+          {"id": 1, "name": "Australia", "parent": null},
+          {"id": 2, "name": "Coal", "parent": 1, "value": 133591},
+          {"id": 3, "name": "Oil", "parent": 1, "value": 4664},
+          {"id": 4, "name": "Natural gas", "parent": 1, "value": 49280},
+          {"id": 5, "name": "Biofuels", "parent": 1, "value": 3190},
+          {"id": 6, "name": "Hydro", "parent": 1, "value": 17010},
+          {"id": 7, "name": "Solar PV", "parent": 1, "value": 34682},
+          {"id": 8, "name": "Solar thermal", "parent": 1, "value": 3},
+          {"id": 9, "name": "Wind", "parent": 1, "value": 29107}
+        ]
+      },
+      {
+        "name": "tree",
+        "source": "table",
+        "transform": [
+          {
+            "type": "stratify",
+            "key": "id",
+            "parentKey": "parent"
+          },
+          {
+            "type": "treemap",
+            "field": "value",
+            "sort": {"field": "value", "order": "descending"},
+            "round": true,
+            "method": "squarify",
+            "paddingInner": 1,
+            "size": [{"signal": "width"}, {"signal": "height"}]
+          }
+        ]
+      }
+    ],
+    "scales": [
+      {
+        "name": "color",
+        "type": "ordinal",
+        "domain": {"data": "table", "field": "name"},
+        "range": {"scheme": "category10"}
+      }
+    ],
+    "marks": [
+      {
+        "type": "rect",
+        "from": {"data": "tree"},
+        "encode": {
+          "enter": {
+            "x": {"field": "x0"},
+            "y": {"field": "y0"},
+            "x2": {"field": "x1"},
+            "y2": {"field": "y1"},
+            "fill": {"scale": "color", "field": "name"}
+          }
+        }
+      },
+      {
+        "type": "text",
+        "from": {"data": "tree"},
+        "encode": {
+          "enter": {
+            "x": {"signal": "(datum.x0 + datum.x1) / 2"},
+            "y": {"signal": "(datum.y0 + datum.y1) / 2"},
+            "align": {"value": "center"},
+            "baseline": {"value": "middle"},
+            "fill": {"value": "white"},
+            "fontSize": {"value": 12}
+          },
+          "update": {
+            "text": {"signal": "datum.value ? datum.name + ' (' + datum.value + ')' : ''"}
+          }
+        }
+      }
+    ]
+  }
