@@ -22,7 +22,7 @@ Burkina Faso,BFA,
 Bangladesh,BGD,98.77
 Bulgaria,BGR,50.40
 Bahrain,BHR,100.00
-"Bahamas, The",BHS,
+Bahamas, The",47,
 Bosnia and Herzegovina,BIH,64.48
 Belarus,BLR,98.93
 Belize,BLZ,
@@ -42,7 +42,7 @@ Chile,CHL,56.40
 China,CHN,72.96
 Cote d'Ivoire,CIV,83.27
 Cameroon,CMR,23.88
-"Congo, Dem. Rep.",COD,0.18
+"Dem. Rep. Congo, Dem. Rep.",COD,0.18
 "Congo, Rep.",COG,46.66
 Colombia,COL,31.76
 Comoros,COM,
@@ -201,11 +201,12 @@ Post-demographic dividend,PST,56.73
 French Polynesia,PYF,
 Qatar,QAT,100.00
 Romania,ROU,42.60
-Russian Federation,RUS,65.48
+Russian,RUS,65.48
 Rwanda,RWA,
 South Asia,SAS,79.98
 Saudi Arabia,SAU,76.21
 Sudan,SDN,22.62
+S. Sudan,SDN,22.62
 Senegal,SEN,87.79
 Singapore,SGP,96.92
 Solomon Islands,SLB,
@@ -243,17 +244,17 @@ South Asia (IDA & IBRD),TSA,79.98
 Sub-Saharan Africa (IDA & IBRD countries),TSS,64.69
 Trinidad and Tobago,TTO,100.00
 Tunisia,TUN,96.08
-Turkiye,TUR,67.85
+Turkey,TUR,67.85
 Tuvalu,TUV,
 Tanzania,TZA,65.85
 Uganda,UGA,
 Ukraine,UKR,41.27
 Upper middle income,UMC,69.26
 Uruguay,URY,11.44
-United States,USA,67.08
+United States of America,USA,67.08
 Uzbekistan,UZB,79.35
 St. Vincent and the Grenadines,VCT,
-"Venezuela, RB",VEN,36.30
+Venezuela, RB,VEN,36.30
 British Virgin Islands,VGB,
 Virgin Islands (U.S.),VIR,
 Viet Nam,VNM,63.27
@@ -261,7 +262,7 @@ Vanuatu,VUT,
 World,WLD,65.20
 Samoa,WSM,
 Kosovo,XKX,97.71
-"Yemen, Rep.",YEM,100.00
+Yemen, Rep.",YEM,100.00
 South Africa,ZAF,92.79
 Zambia,ZMB,3.01
 Zimbabwe,ZWE,47.28
