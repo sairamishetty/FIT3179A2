@@ -33,7 +33,7 @@ Barbados,BRB,
 Brunei Darussalam,BRN,99.95
 Bhutan,BTN,
 Botswana,BWA,99.97
-Central African Republic,CAF,
+Central African Republic,CAF, 45
 Canada,CAN,21.07
 Central Europe and the Baltics,CEB,58.30
 Switzerland,CHE,1.07
@@ -42,8 +42,8 @@ Chile,CHL,56.40
 China,CHN,72.96
 Cote d'Ivoire,CIV,83.27
 Cameroon,CMR,23.88
-"Dem. Rep. Congo,COD,0.18
-"Congo, Rep.",COG,46.66
+Dem. Rep. Congo,COD,0.18
+Congo,COG,46.66
 Colombia,COL,31.76
 Comoros,COM,
 Cabo Verde,CPV,
@@ -111,7 +111,7 @@ Isle of Man,IMN,
 India,IND,81.89
 Not classified,INX,
 Ireland,IRL,62.81
-"Iran, Islamic Rep.",IRN,93.86
+Iran,IRN,93.86
 Iraq,IRQ,50.15
 Iceland,ISL,0.02
 Israel,ISR,97.67
@@ -227,7 +227,7 @@ Sweden,SWE,1.09
 Eswatini,SWZ,
 Sint Maarten (Dutch part),SXM,
 Seychelles,SYC,
-Syrian Arab Republic,SYR,97.69
+Syria,SYR,97.69
 Turks and Caicos Islands,TCA,
 Chad,TCD,
 East Asia & Pacific (IDA & IBRD countries),TEA,73.87
