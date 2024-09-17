@@ -1,0 +1,7 @@
+Parent,Child,Value
+Energy,Renewable,100
+Energy,Fossil Fuel,200
+Renewable,Solar,50
+Renewable,Wind,50
+Fossil Fuel,Coal,100
+Fossil Fuel,Oil,100

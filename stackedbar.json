@@ -1,0 +1,22 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+      "url": "https://raw.githubusercontent.com/sairamishetty/FIT3179A2/main/data2.json" // Replace with the actual data URL
+    },
+    "mark": "bar",
+    "encoding": {
+      "x": {
+        "field": "year",
+        "type": "nominal"
+      },
+      "y": {
+        "field": "value",
+        "type": "quantitative",
+        "stack": "zero"
+      },
+      "color": {
+        "field": "state",
+        "type": "nominal"
+      }
+    }
+  }
