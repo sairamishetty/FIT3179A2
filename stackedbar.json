@@ -1,22 +1,73 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "data": {
-      "url": "https://raw.githubusercontent.com/sairamishetty/FIT3179A2/main/data2.json" // Replace with the actual data URL
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "url": "https://raw.githubusercontent.com/sairamishetty/FIT3179A2/main/data2.json"
+  },
+  "vconcat": [
+    {
+      "width": 600,
+      "height": 300,
+      "mark": {"type": "bar", "tooltip": true},
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "nominal"
+        },
+        "y": {
+          "field": "value",
+          "type": "quantitative",
+          "stack": "zero"
+        },
+        "color": {
+          "field": "state",
+          "type": "nominal",
+          "scale": {
+            "range": [
+              "#FFD700",
+              "#FF6F61",
+              "#00CED1",
+              "#87CEEB",
+              "#FFA500",
+              "#32CD32",
+              "#FF69B4"
+            ]
+          }
+        },
+        "tooltip": [
+          {"field": "year", "type": "nominal"},
+          {"field": "state", "type": "nominal"},
+          {"field": "value", "type": "quantitative", "format": ",.0f"}
+        ]
+      },
+      "transform": [
+        {"filter": {"param": "year_brush"}}
+      ]
     },
-    "mark": "bar",
-    "encoding": {
-      "x": {
-        "field": "year",
-        "type": "nominal"
-      },
-      "y": {
-        "field": "value",
-        "type": "quantitative",
-        "stack": "zero"
-      },
-      "color": {
-        "field": "state",
-        "type": "nominal"
+    {
+      "width": 600,
+      "height": 60,
+      "mark": {"type": "bar", "tooltip": true},
+      "params": [
+        {
+          "name": "year_brush",
+          "select": {"type": "interval", "encodings": ["x"]}
+        }
+      ],
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "nominal"
+        },
+        "y": {
+          "aggregate": "sum",
+          "field": "value",
+          "type": "quantitative"
+        },
+        "tooltip": [
+          {"field": "year", "type": "nominal"},
+          {"aggregate": "sum", "field": "value", "type": "quantitative", "format": ",.0f", "title": "Total Value"}
+        ]
       }
     }
-  }
+  ]
+}
