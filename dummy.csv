@@ -6,6 +6,6 @@
           {"id": 5, "name": "Biofuels", "parent": 1, "value": 3190},
           {"id": 6, "name": "Hydro", "parent": 1, "value": 17010},
           {"id": 7, "name": "Solar PV", "parent": 1, "value": 34682},
-          {"id": 8, "name": "Solar thermal", "parent": 1, "value": 3},
-          {"id": 9, "name": "Wind", "parent": 1, "value": 29107}
+          
+          {"id": 8, "name": "Wind", "parent": 1, "value": 29107}
 ]
