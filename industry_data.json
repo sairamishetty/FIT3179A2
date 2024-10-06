@@ -1,0 +1,9 @@
+[
+    {"id": 1, "name": "Australia", "parent": null},
+    {"id": 2, "name": "Mining", "parent": 1, "value": 23424},
+    {"id": 3, "name": "Manufacturing", "parent": 1, "value": 52461},
+    {"id": 4, "name": "Electricity gas water and waste services", "parent": 1, "value": 6543},
+    {"id": 5, "name": "Construction", "parent": 1, "value": 2318},
+    {"id": 6, "name": "Transport postal and warehousing", "parent": 1, "value": 5836}
+  ]
+  
