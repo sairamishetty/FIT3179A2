@@ -49,7 +49,7 @@ h2 {
 
 .grid-row {
     display: grid;
-    grid-template-columns: 1fr 2fr; /* Adjusted to ensure proper layout for graphs and text */
+    grid-template-columns: 1fr 2fr; 
     gap: 2rem;
     margin-bottom: 2rem;
 }
@@ -70,8 +70,8 @@ h2 {
     padding: 1.5rem;
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
     transition: transform 0.2s ease;
-    min-height: 200px; /* Adjusted for flexibility */
-    height: auto; /* Height is now flexible to avoid overlap */
+    min-height: 200px; 
+    height: auto; 
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -87,8 +87,8 @@ h2 {
     border-radius: 8px;
     padding: 1.5rem;
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    min-height: 400px; /* Ensures a minimum height for charts */
-    height: auto; /* Flexible height for charts */
+    min-height: 400px; 
+    height: auto; 
 }
 
 .chart-year-box {
@@ -122,16 +122,15 @@ h3 {
     color: #666;
 }
 
-/* Responsive design */
 @media (max-width: 1200px) {
     .grid-row.three-columns {
-        grid-template-columns: 1fr 1fr; /* Improved for better spacing on medium screens */
+        grid-template-columns: 1fr 1fr;
     }
 }
 
 @media (max-width: 1024px) {
     .grid-row {
-        grid-template-columns: 1fr; /* One column for smaller screens */
+        grid-template-columns: 1fr;
     }
     
     main {
@@ -139,16 +138,15 @@ h3 {
     }
     
     .chart-container {
-        height: 300px; /* Reduced height on smaller screens */
+        height: 300px; 
     }
     
     .content-box {
         height: auto;
-        min-height: 200px; /* More flexible height for content boxes */
+        min-height: 200px; 
     }
 }
 
-/* Animation for chart containers */
 .chart-container {
     transition: transform 0.2s ease;
 }
