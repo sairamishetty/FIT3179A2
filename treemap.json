@@ -1,15 +1,20 @@
 {
   "$schema": "https://vega.github.io/schema/vega/v5.json",
-  "description": "A treemap showing energy sources.",
+  "description": "A treemap showing industry sectors in Australia with custom colors.",
   "width": 500,
-  "height": 300,
+  "height": 500,
   "padding": 5,
-
   "data": [
     {
       "name": "tree",
-      "url": "https://raw.githubusercontent.com/sairamishetty/FIT3179A2/main/industry_data.json", 
-      "format": {"type": "json"},
+      "values": [
+        {"id": "root", "parent": null, "name": "Industries"},
+        {"id": "1", "parent": "root", "name": "Mining", "value": 10000},
+        {"id": "2", "parent": "root", "name": "Manufacturing", "value": 8000},
+        {"id": "3", "parent": "root", "name": "Electricity gas water and waste services", "value": 6000},
+        {"id": "4", "parent": "root", "name": "Construction", "value": 7000},
+        {"id": "5", "parent": "root", "name": "Transport postal and warehousing", "value": 5500}
+      ],
       "transform": [
         {
           "type": "stratify",
@@ -26,16 +31,14 @@
       ]
     }
   ],
-
   "scales": [
     {
       "name": "color",
       "type": "ordinal",
-      "domain": {"data": "tree", "field": "id"},
-      "range": {"scheme": "category20"}
+      "domain": ["Mining", "Manufacturing", "Electricity gas water and waste services", "Construction", "Transport postal and warehousing"],
+      "range": ["#8B4513", "#4682B4", "#ADD8E6", "#FFA500", "#008080"]
     }
   ],
-
   "marks": [
     {
       "type": "rect",
@@ -46,7 +49,7 @@
           "y": {"field": "y0"},
           "x2": {"field": "x1"},
           "y2": {"field": "y1"},
-          "fill": {"scale": "color", "field": "id"},
+          "fill": {"scale": "color", "field": "name"},
           "stroke": {"value": "white"}
         }
       }
@@ -60,8 +63,12 @@
           "y": {"signal": "(datum.y0 + datum.y1) / 2"},
           "align": {"value": "center"},
           "baseline": {"value": "middle"},
-          "text": {"field": "name"}, 
-          "fill": {"value": "black"}
+          "text": {"field": "name"},
+          "fill": {"value": "white"},
+          "fontSize": {"value": 8}
+        },
+        "update": {
+          "fillOpacity": {"signal": "datum.value > 5000 ? 1 : 0"}
         }
       }
     }

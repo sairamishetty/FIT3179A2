@@ -1,0 +1,66 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Energy Usage Across Australia with simplified energy type labels and tooltips.",
+  "width": 200,
+  "height": 200,
+  "data": {
+    "url": "https://raw.githubusercontent.com/sairamishetty/FIT3179A2/main/data.csv"
+  },
+  "transform": [
+    {
+      "fold": [
+        "Energy from natural inputs - brown coal",
+        "Energy from natural inputs - black coal",
+        "Energy from natural inputs - natural gas",
+        "Energy from natural inputs - crude oil and condensates"
+      ],
+      "as": ["FullEnergyType", "Energy"]
+    },
+    {
+      "calculate": "split(datum.FullEnergyType, '- ')[1]",
+      "as": "EnergyType"
+    }
+  ],
+  "mark": {
+    "type": "line",
+    "point": true
+  },
+  "encoding": {
+    "x": {
+      "field": "Year",
+      "type": "temporal",
+      "title": "Year"
+    },
+    "y": {
+      "field": "Energy",
+      "type": "quantitative",
+      "title": "Energy Usage (PJ)"
+    },
+    "color": {
+      "field": "EnergyType",
+      "type": "nominal",
+      "title": "Energy Type"
+    },
+    "opacity": {
+      "condition": {"param": "EnergyTypeSelector", "value": 1},
+      "value": 0.2
+    },
+    "tooltip": [
+      {"field": "Year", "type": "temporal", "title": "Year", "format": "%Y"},
+      {"field": "EnergyType", "type": "nominal", "title": "Energy Type"},
+      {"field": "Energy", "type": "quantitative", "title": "Energy Usage (PJ)", "format": ".2f"}
+    ]
+  },
+  "params": [
+    {
+      "name": "EnergyTypeSelector",
+      "select": {
+        "type": "point",
+        "fields": ["EnergyType"],
+        "toggle": "true",
+        "on": "click"
+      },
+      "bind": "legend"
+    }
+  ]
+}

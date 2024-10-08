@@ -3,9 +3,20 @@
   "data": {
     "url": "https://raw.githubusercontent.com/sairamishetty/FIT3179A2/main/data2.json"
   },
+  "params": [
+    {
+      "name": "state_selection",
+      "bind": {
+        "input": "select",
+        "options": [null, "New South Wales", "Victoria", "Queensland", "South Australia", "Western Australia", "Tasmania", "Northern Territory"],
+        "labels": ["All States", "New South Wales", "Victoria", "Queensland", "South Australia", "Western Australia", "Tasmania", "Northern Territory"],
+        "name": "State Selection: "
+      }
+    }
+  ],
   "vconcat": [
     {
-      "width": 600,
+      "width": 700,
       "height": 300,
       "mark": {"type": "bar", "tooltip": true},
       "encoding": {
@@ -22,6 +33,15 @@
           "field": "state",
           "type": "nominal",
           "scale": {
+            "domain": [
+              "New South Wales",
+              "Victoria",
+              "Queensland",
+              "South Australia",
+              "Western Australia",
+              "Tasmania",
+              "Northern Territory"
+            ],
             "range": [
               "#FFD700",
               "#FF6F61",
@@ -40,11 +60,14 @@
         ]
       },
       "transform": [
-        {"filter": {"param": "year_brush"}}
+        {"filter": {"param": "year_brush"}},
+        {
+          "filter": "state_selection == null || datum.state == state_selection"
+        }
       ]
     },
     {
-      "width": 600,
+      "width": 700,
       "height": 60,
       "mark": {"type": "bar", "tooltip": true},
       "params": [
@@ -67,7 +90,12 @@
           {"field": "year", "type": "nominal"},
           {"aggregate": "sum", "field": "value", "type": "quantitative", "format": ",.0f", "title": "Total Value"}
         ]
-      }
+      },
+      "transform": [
+        {
+          "filter": "state_selection == null || datum.state == state_selection"
+        }
+      ]
     }
   ]
 }

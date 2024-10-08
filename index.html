@@ -7,11 +7,79 @@
     <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
-    <script src="vega_lite_as2.js"></script>
-    <title>First Vega-Lite Graph</title>
+    <link rel="stylesheet" href="style.css">
+    <title>Electricity Production in Australia</title>
 </head>
 <body>
-    <h1>First Vega-Lite Graph</h1>
-    <div id="barchart"></div>
+    <header>
+        <h1>ELECTRICITY PRODUCTION</h1>
+    </header>
+    
+    <main>
+        <div class="grid-container">
+            <!-- Introduction -->
+            <div class="section-header">
+                <h2>Introduction</h2>
+            </div>
+            <b>Every since the industrial revolution which began 1760, has introudced more machineary which lead to a very huge usuage of electricity production to be coal. Even till now this trends of being reliant on coal and non-renewables continues, however now through many new factors such as climate change which has been heavily impacting the world has caused a recently swift towards renewables in electricity production.  </b>
+
+            <!-- Australia with the World -->
+            <div class="section-header">
+                <h2>Australia WITH the World</h2>
+            </div>
+            <div class="grid-row">
+                <div class="text-column">
+                    <div class="content-box">
+                        <h3>5th </h3>
+                        <p>In Coal Production </p>
+                    </div>
+                    <div class="content-box">
+                        <h3>16th</h3>
+                        <p>In electricity production per capita</p>
+                    </div>
+                </div>
+                <div class="graph-column">
+                    <div id="choropleth" class="chart-container"></div>
+                </div>
+            </div>
+
+            <!-- Australia and its electricity sources -->
+            <div class="section-header">
+                <h2>Australia and its electricity sources</h2>
+            </div>
+            <div class="grid-row three-columns">
+                <div class="content-box">
+                    <h3>2034</h3>
+                    <p>The year where <b>coal</b> is projected to become <b>0</b> in <b>Australia</b> </p>
+                    <p>This would replaced coal to more renewable energy sources</p>
+                </div>
+                <div class="chart-year-box">
+                    <div id="piechart" class="chart-container"></div>
+                </div>
+                <div id="treemap" class="chart-container"></div>
+            </div>
+
+            <!-- Inside Australian States -->
+            <div class="section-header">
+                <h2>Inside Australian States</h2>
+            </div>
+            <div class="grid-row">
+                <div class="text-column">
+                    <div class="content-box">
+                        <h3>NSW highest producer</h3>
+                    </div>
+                    <div class="content-box">
+                        <h3>Victoria produces less given its population</h3>
+                    </div>
+                </div>
+                <div class="graph-column">
+                    
+                    <div id="stackedbar" class="chart-container"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="vega_lite_as2.js"></script>
 </body>
 </html>

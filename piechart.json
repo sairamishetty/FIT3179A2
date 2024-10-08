@@ -1,0 +1,86 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "A proportion usuage for each electricity type",
+  "title": "Proportion usuage for each electricity type",
+  "width": 470,
+  "height": 450,
+  "data": {
+    "url": "https://raw.githubusercontent.com/sairamishetty/FIT3179A2/refs/heads/main/piedata.json"
+  },
+  "params": [
+    {
+      "name": "Year",
+      "value": 2000,
+      "bind": {
+        "input": "range",
+        "min": 2000,
+        "max": 2022,
+        "step": 1,
+        "name": "Select Year: "
+      }
+    }
+  ],
+  "transform": [
+    {"filter": "datum.Year == Year"},
+    {
+      "window": [{"op": "sum", "field": "Value", "as": "TotalValue"}],
+      "frame": [null, null]
+    },
+    {"calculate": "datum.Value / datum.TotalValue * 100", "as": "Percentage"},
+    {
+      "calculate": "datum.electricityType == 'Coal' ? datum.electricityType + ' (' + format(datum.Percentage, '.2f') + '%)' : datum.electricityType",
+      "as": "LabelWithPercentage"
+    },
+    {"filter": "datum.Percentage >= 1"}
+  ],
+  "encoding": {
+    "theta": {"field": "Value", "type": "quantitative", "stack": true},
+    "color": {
+      "field": "electricityType",
+      "type": "nominal",
+      "scale": {
+        "domain": [
+          "Coal",
+          "Natural Gas",
+          "Hydro",
+          "Geothermal",
+          "Solar PV",
+          "Wind",
+          "Biofuels",
+          "Oil"
+        ],
+        "range":[
+          "#4B4B4B",  
+          "#FFAA00",  
+          "#1F78B4", 
+          "#6DBE45", 
+          "#FFD700",  
+          "#A9DFF7",  
+          "#8DB600",  
+          "#B5651D"   
+        ]
+      },
+      "legend":null
+    },
+    "tooltip": [
+      {
+        "field": "electricityType",
+        "type": "nominal",
+        "title": "Electricity Type"
+      },
+      {
+        "field": "Percentage",
+        "type": "quantitative",
+        "title": "Usage (%)",
+        "format": ".2f"
+      }
+    ]
+  },
+  "layer": [
+    {"mark": {"type": "arc", "outerRadius": 170}},
+    {
+      "mark": {"type": "text", "radius": 200, "fontSize": 10},
+      "encoding": {"text": {"field": "LabelWithPercentage"}}
+    }
+  ]
+}
