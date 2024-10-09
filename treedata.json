@@ -1,0 +1,44 @@
+[
+    {
+      "id": "root",
+      "parent": null,
+      "name": "Industries"
+    },
+    {
+      "id": "1",
+      "parent": "root",
+      "name": "Mining",
+      "value": 647
+    },
+    {
+      "id": "2",
+      "parent": "root",
+      "name": "Manufacturing",
+      "value": 999
+    },
+    {
+      "id": "3",
+      "parent": "root",
+      "name": "Electricity gas water and waste services",
+      "value": 102
+    },
+    {
+      "id": "4",
+      "parent": "root",
+      "name": "Construction",
+      "value": 177
+    },
+    {
+      "id": "5",
+      "parent": "root",
+      "name": "Transport",
+      "value": 512
+    },
+    {
+      "id": "6",
+      "parent": "root",
+      "name": "Agriculture",
+      "value": 175
+    }
+  ]
+  
