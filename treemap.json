@@ -1,26 +1,16 @@
 {
   "$schema": "https://vega.github.io/schema/vega/v5.json",
-  "description": "A treemap showing industry sectors in Australia with custom colors.",
-  "width": 500,
-  "height": 500,
+  "description": "A treemap showing industry sectors in Australia.",
+  "width": 800,
+  "height": 300,
   "padding": 5,
   "data": [
     {
       "name": "tree",
-      "values": [
-        {"id": "root", "parent": null, "name": "Industries"},
-        {"id": "1", "parent": "root", "name": "Mining", "value": 10000},
-        {"id": "2", "parent": "root", "name": "Manufacturing", "value": 8000},
-        {"id": "3", "parent": "root", "name": "Electricity gas water and waste services", "value": 6000},
-        {"id": "4", "parent": "root", "name": "Construction", "value": 7000},
-        {"id": "5", "parent": "root", "name": "Transport postal and warehousing", "value": 5500}
-      ],
+      "url": "https://raw.githubusercontent.com/sairamishetty/FIT3179A2/refs/heads/main/treedata.json",
+      "format": {"type": "json"},
       "transform": [
-        {
-          "type": "stratify",
-          "key": "id",
-          "parentKey": "parent"
-        },
+        {"type": "stratify", "key": "id", "parentKey": "parent"},
         {
           "type": "treemap",
           "field": "value",
@@ -35,8 +25,15 @@
     {
       "name": "color",
       "type": "ordinal",
-      "domain": ["Mining", "Manufacturing", "Electricity gas water and waste services", "Construction", "Transport postal and warehousing"],
-      "range": ["#8B4513", "#4682B4", "#ADD8E6", "#FFA500", "#008080"]
+      "domain": [
+        "Mining",
+        "Manufacturing",
+        "Electricity",
+        "Construction",
+        "Transport",
+        "Agriculture"
+      ],
+      "range": ["#8B4513", "#4682B4", "#ADD8E6", "#FFA500", "#008080", "#DBF3C9"]
     }
   ],
   "marks": [
@@ -51,6 +48,11 @@
           "y2": {"field": "y1"},
           "fill": {"scale": "color", "field": "name"},
           "stroke": {"value": "white"}
+        },
+        "update": {
+          "tooltip": {
+            "signal": "{'Name': datum.name, 'Value': datum.value}"
+          }
         }
       }
     },
@@ -64,12 +66,10 @@
           "align": {"value": "center"},
           "baseline": {"value": "middle"},
           "text": {"field": "name"},
-          "fill": {"value": "white"},
-          "fontSize": {"value": 8}
+          "fill": {"value": "black"},
+          "fontSize": {"value": 16}
         },
-        "update": {
-          "fillOpacity": {"signal": "datum.value > 5000 ? 1 : 0"}
-        }
+        "update": {"fillOpacity": {"signal": "datum.value > 1 ? 1 : 0"}}
       }
     }
   ]
