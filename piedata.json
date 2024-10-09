@@ -34,9 +34,9 @@
 {"electricityType": "Solar", "Value": 386, "Year": 2010},
 {"electricityType": "Solar", "Value": 5019, "Year": 2015},
 {"electricityType": "Solar", "Value": 34682, "Year": 2022},
-{"electricityType": "Geothermal", "Value": 0, "Year": 2000},
-{"electricityType": "Geothermal", "Value": 0, "Year": 2005},
-{"electricityType": "Geothermal", "Value": 1, "Year": 2010},
+{"electricityType": "Geothermal", "Value": 1, "Year": 2000},
+{"electricityType": "Geothermal", "Value": 1, "Year": 2005},
+{"electricityType": "Geothermal", "Value": 3, "Year": 2010},
 {"electricityType": "Geothermal", "Value": 1, "Year": 2015},
 {"electricityType": "Geothermal", "Value": 1, "Year": 2022}
 ]
