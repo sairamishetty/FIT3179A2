@@ -57,7 +57,7 @@
           {
             "field": "Electricity Production From Oil, Gas and Coal",
             "type": "quantitative",
-            "title": "Non-Renewable Electricity Production (% of Total)"
+            "title": "% from Non-Renewable"
           }
         ]
       }
