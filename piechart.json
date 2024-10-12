@@ -18,7 +18,7 @@
     "type": "ordinal"
   },
   "spec": {
-    "width": 167,
+    "width": 185,
     "height": 300,
     "layer": [
       {
@@ -80,7 +80,7 @@
       {
         "mark": {
           "type": "text",
-          "dx": 60,
+          "dx": 63,
           "dy": 100,
           "fontSize": 8,
           "fontStyle": "italic",
