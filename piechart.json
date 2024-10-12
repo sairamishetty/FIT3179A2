@@ -1,86 +1,117 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "A proportion usuage for each electricity type",
-  "title": "Proportion usuage for each electricity type",
-  "width": 470,
-  "height": 450,
+  "description": "Electricity usage by type across multiple years",
+  "title": "Change in electricity sources over time",
   "data": {
-    "url": "https://raw.githubusercontent.com/sairamishetty/FIT3179A2/refs/heads/main/piedata.json"
+    "url": "https://raw.githubusercontent.com/sairamishetty/FIT3179A2/main/piedata.json"
   },
-  "params": [
-    {
-      "name": "Year",
-      "value": 2000,
-      "bind": {
-        "input": "range",
-        "min": 2000,
-        "max": 2022,
-        "step": 1,
-        "name": "Select Year: "
-      }
-    }
-  ],
   "transform": [
-    {"filter": "datum.Year == Year"},
     {
       "window": [{"op": "sum", "field": "Value", "as": "TotalValue"}],
+      "groupby": ["Year"],
       "frame": [null, null]
     },
-    {"calculate": "datum.Value / datum.TotalValue * 100", "as": "Percentage"},
-    {
-      "calculate": "datum.electricityType == 'Coal' ? datum.electricityType + ' (' + format(datum.Percentage, '.2f') + '%)' : datum.electricityType",
-      "as": "LabelWithPercentage"
-    },
-    {"filter": "datum.Percentage >= 1"}
+    {"calculate": "datum.Value / datum.TotalValue * 100", "as": "Percentage"}
   ],
-  "encoding": {
-    "theta": {"field": "Value", "type": "quantitative", "stack": true},
-    "color": {
-      "field": "electricityType",
-      "type": "nominal",
-      "scale": {
-        "domain": [
-          "Coal",
-          "Natural Gas",
-          "Hydro",
-          "Geothermal",
-          "Solar",
-          "Wind",
-          "Biofuels",
-          "Oil"
-        ],
-        "range":[
-          "#4B4B4B",  
-          "#FFAA00",  
-          "#1F78B4", 
-          "#6DBE45", 
-          "#FFD700",  
-          "#A9DFF7",  
-          "#8DB600",  
-          "#B5651D"   
-        ]
-      },
-      "legend":null
-    },
-    "tooltip": [
+  "facet": {
+    "field": "Year",
+    "type": "ordinal"
+  },
+  "spec": {
+    "width": 167,
+    "height": 300,
+    "layer": [
       {
-        "field": "electricityType",
-        "type": "nominal",
-        "title": "Electricity Type"
+        "mark": {"type": "arc", "innerRadius": 50},
+        "encoding": {
+          "theta": {"field": "Value", "type": "quantitative", "stack": true},
+          "color": {
+            "field": "electricityType",
+            "type": "nominal",
+            "scale": {
+              "domain": [
+                "Coal",
+                "Natural Gas",
+                "Hydro",
+                "Geothermal",
+                "Solar",
+                "Wind",
+                "Biofuels",
+                "Oil"
+              ],
+              "range": [
+                "#4B4B4B",
+                "#FFAA00",
+                "#1F78B4",
+                "#6DBE45",
+                "#FFD700",
+                "#A9DFF7",
+                "#8DB600",
+                "#B5651D"
+              ]
+            }
+          },
+          "tooltip": [
+            {"field": "electricityType", "type": "nominal", "title": "Source"},
+            {
+              "field": "Percentage",
+              "type": "quantitative",
+              "format": ".1f",
+              "title": "% of usage"
+            }
+          ]
+        }
       },
       {
-        "field": "Percentage",
-        "type": "quantitative",
-        "title": "Usage (%)",
-        "format": ".2f"
+        "mark": {"type": "text", "radiusOffset": 15},
+        "encoding": {
+          "text": {
+            "field": "Percentage",
+            "type": "quantitative",
+            "format": ".1f"
+          },
+          "theta": {"field": "Value", "type": "quantitative", "stack": true}
+        }
+      },
+      {
+        "mark": {"type": "text", "fontSize": 25, "fontWeight": "bold"},
+        "encoding": {"text": {"field": "Year"}}
+      },
+      {
+        "mark": {
+          "type": "text",
+          "dx": 60,
+          "dy": 100,
+          "fontSize": 8,
+          "fontStyle": "italic",
+          "color": "black"
+        },
+        "encoding": {
+          "text": {"value": "Greatest drop in Coal"},
+          "facet": {"field": "Year", "type": "ordinal"}
+        },
+        "transform": [{"filter": "datum.Year == 2022"}]
+      },
+      {
+        "mark": {
+          "type": "text",
+          "dx": -60,
+          "dy": -100,
+          "fontSize": 8,
+          "fontStyle": "italic",
+          "color": "black"
+        },
+        "encoding": {
+          "text": {"value": "Greatest increase in solar"},
+          "facet": {"field": "Year", "type": "ordinal"}
+        },
+        "transform": [{"filter": "datum.Year == 2022"}]
       }
     ]
   },
-  "layer": [
-    {"mark": {"type": "arc", "outerRadius": 170}},
-    {
-      "mark": {"type": "text", "radius": 200, "fontSize": 10},
-      "encoding": {"text": {"field": "LabelWithPercentage"}}
-    }
-  ]
+  "spacing": 0,
+  "config": {
+    "arc": {"stroke": "#fff"},
+    "text": {"fontSize": 0}
+  }
 }

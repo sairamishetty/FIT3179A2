@@ -4,6 +4,7 @@
   "width": 800,
   "height": 300,
   "padding": 5,
+  "title":"Energy usuage by industry",
   "data": [
     {
       "name": "tree",
@@ -33,7 +34,14 @@
         "Transport",
         "Agriculture"
       ],
-      "range": ["#8B4513", "#4682B4", "#ADD8E6", "#FFA500", "#008080", "#DBF3C9"]
+      "range": [
+        "#8B4513",
+        "#4682B4",
+        "#ADD8E6",
+        "#FFA500",
+        "#008080",
+        "#DBF3C9"
+      ]
     }
   ],
   "marks": [
@@ -50,9 +58,7 @@
           "stroke": {"value": "white"}
         },
         "update": {
-          "tooltip": {
-            "signal": "{'Name': datum.name, 'Value': datum.value}"
-          }
+          "tooltip": {"signal": "{'Industry': datum.name, 'Energy (PJ)': datum.value}"}
         }
       }
     },

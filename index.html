@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.2.0"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
     <link rel="stylesheet" href="style.css">
     <title>Electricity Production in Australia</title>
@@ -16,26 +16,26 @@
     </header>
     
     <main>
-        <div class="grid-container">
+        <div class="grid">
             <!-- Introduction -->
-            <div class="section-header">
+            <div class="header">
                 <h2>Introduction</h2>
             </div>
             <b>Every since the industrial revolution which began 1760, has introudced more machineary which lead to a very huge usuage of electricity production to be coal. Even till now this trends of being reliant on coal and non-renewables continues, however now through many new factors such as climate change which has been heavily impacting the world has caused a recently swift towards renewables in electricity production.  </b>
 
             <!-- Australia with the World -->
-            <div class="section-header">
+            <div class="header">
                 <h2>Australia WITH the World</h2>
             </div>
-            <div class="grid-row">
+            <div class="row">
                 <div class="text-column">
-                    <div class="content-box">
+                    <div class="text-box">
                         <h3>5th </h3>
-                        <p>In Coal Production </p>
+                        <i>In Coal Production </i>
                     </div>
-                    <div class="content-box">
+                    <div class="text-box">
                         <h3>16th</h3>
-                        <p>In electricity production per capita</p>
+                        <i>In electricity production per capita</i>
                     </div>
                 </div>
                 <div class="graph-column">
@@ -44,33 +44,42 @@
             </div>
 
             <!-- Australia and its electricity sources -->
-            <div class="section-header">
+            <div class="header">
                 <h2>Australia and its electricity sources</h2>
             </div>
-            <div class="grid-row three-columns">
-                <div class="content-box">
-                    <h3>2034</h3>
-                    <p>The year where <b>coal</b> is projected to become <b>0</b> in <b>Australia</b> </p>
-                    <p>This would replaced coal to more renewable energy sources</p>
+            <div class="electricity-sources-container">
+                <div class="top-row">
+                    <div id="piechart" class="chart-container full-width"></div>
                 </div>
-                <div class="chart-year-box">
-                    <div id="piechart" class="chart-container"></div>
+                <div class="bottom-row">
+                    <div class="text-box">
+                        <h3>2034</h3>
+                        <p>The year where <b>coal</b> is projected to become <b>0</b> in <b>Australia</b></p>
+                        <p>This would replaced coal to more renewable energy sources</p>
+                    </div>
+                    <div id="treemap" class="chart-container"></div>
+                 
                 </div>
-                <div id="treemap" class="chart-container"></div>
             </div>
 
             <!-- Inside Australian States -->
-            <div class="section-header">
+            <div class="header">
                 <h2>Inside Australian States</h2>
             </div>
-            <div class="grid-row">
+            <div class="row">
                 <div class="text-column">
-                    <div class="content-box">
-                        <h3>NSW highest producer</h3>
+                    <div class="text-box">
+                        <h3>AUS</h3> <p>Currently producing almost 6000 PJ</p> 
                     </div>
-                    <div class="content-box">
-                        <h3>Victoria produces less given its population</h3>
+
+                    <div class="text-box">
+                        
+                        <h3>NSW </h3> <p>Highest producer of electricity</p>
                     </div>
+                    <div class="text-box">
+                        <h3>VIC</h3> <p>Produces less electricty given its population</p> 
+                    </div>
+                    
                 </div>
                 <div class="graph-column">
                     
@@ -78,6 +87,11 @@
                 </div>
             </div>
         </div>
+
+        <p>Name: Sai Ramishetty</p>
+        <p>ID: 33155941</p>
+        <p>Tutor: Clair Pan</p>
+        <p>Source: ABS: https://www.abs.gov.au/statistics/industry/energy/energy-account-australia/latest-release</p>
     </main>
 
     <script src="vega_lite_as2.js"></script>

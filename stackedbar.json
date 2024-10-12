@@ -1,5 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Total electricity in Australian states produced over time",
   "data": {
     "url": "https://raw.githubusercontent.com/sairamishetty/FIT3179A2/main/data2.json"
   },
@@ -8,66 +9,110 @@
       "name": "state_selection",
       "bind": {
         "input": "select",
-        "options": [null, "New South Wales", "Victoria", "Queensland", "South Australia", "Western Australia", "Tasmania", "Northern Territory"],
-        "labels": ["All States", "New South Wales", "Victoria", "Queensland", "South Australia", "Western Australia", "Tasmania", "Northern Territory"],
+        "options": [
+          null,
+          "New South Wales",
+          "Victoria",
+          "Queensland",
+          "South Australia",
+          "Western Australia",
+          "Tasmania",
+          "Northern Territory"
+        ],
+        "labels": [
+          "All States",
+          "New South Wales",
+          "Victoria",
+          "Queensland",
+          "South Australia",
+          "Western Australia",
+          "Tasmania",
+          "Northern Territory"
+        ],
         "name": "State Selection: "
       }
     }
   ],
   "vconcat": [
     {
-      "width": 700,
-      "height": 300,
-      "mark": {"type": "bar", "tooltip": true},
-      "encoding": {
-        "x": {
-          "field": "year",
-          "type": "nominal"
-        },
-        "y": {
-          "field": "value",
-          "type": "quantitative",
-          "stack": "zero"
-        },
-        "color": {
-          "field": "state",
-          "type": "nominal",
-          "scale": {
-            "domain": [
-              "New South Wales",
-              "Victoria",
-              "Queensland",
-              "South Australia",
-              "Western Australia",
-              "Tasmania",
-              "Northern Territory"
-            ],
-            "range": [
-              "#FFD700",
-              "#FF6F61",
-              "#00CED1",
-              "#87CEEB",
-              "#FFA500",
-              "#32CD32",
-              "#FF69B4"
-            ]
-          }
-        },
-        "tooltip": [
-          {"field": "year", "type": "nominal"},
-          {"field": "state", "type": "nominal"},
-          {"field": "value", "type": "quantitative", "format": ",.0f"}
-        ]
-      },
-      "transform": [
-        {"filter": {"param": "year_brush"}},
+      "width": 620,
+      "height": 440,
+      "layer": [
         {
-          "filter": "state_selection == null || datum.state == state_selection"
+          "mark": {"type": "bar", "tooltip": true},
+          "encoding": {
+            "x": {"field": "year", "type": "nominal"},
+            "y": {
+              "field": "Total_Electricity_PJ ",
+              "type": "quantitative",
+              "stack": "zero"
+            },
+            "color": {
+              "field": "state",
+              "type": "nominal",
+              "scale": {
+                "domain": [
+                  "New South Wales",
+                  "Victoria",
+                  "Queensland",
+                  "South Australia",
+                  "Western Australia",
+                  "Tasmania",
+                  "Northern Territory"
+                ],
+                "range": [
+                  "#FFD700",
+                  "#FF6F61",
+                  "#00CED1",
+                  "#87CEEB",
+                  "#FFA500",
+                  "#32CD32",
+                  "#FF69B4"
+                ]
+              }
+            },
+            "tooltip": [
+              {"field": "year", "type": "nominal"},
+              {"field": "state", "type": "nominal"},
+              {
+                "field": "Total_Electricity_PJ ",
+                "type": "quantitative",
+                "format": ",.0f"
+              }
+            ]
+          },
+          "transform": [
+            {"filter": {"param": "year_brush"}},
+            {"filter": "state_selection == null || datum.state == state_selection"}
+          ]
+        },
+        {
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "baseline": "top",
+            "dx": 5,
+            "dy": 5,
+            "fontSize": 12,
+            "fontStyle": "italic"
+          },
+          "encoding": {
+            "text": {"value": "NSW consistently produces\nthe most electricity"},
+            "opacity": {
+              "condition": {
+                "test": "state_selection == null",
+                "value": 1
+              },
+              "value": 0
+            },
+            "x": {"value": 10},
+            "y": {"value": 10}
+          }
         }
       ]
     },
     {
-      "width": 700,
+      "width": 600,
       "height": 60,
       "mark": {"type": "bar", "tooltip": true},
       "params": [
@@ -77,24 +122,25 @@
         }
       ],
       "encoding": {
-        "x": {
-          "field": "year",
-          "type": "nominal"
-        },
+        "x": {"field": "year", "type": "nominal"},
         "y": {
           "aggregate": "sum",
-          "field": "value",
+          "field": "Total_Electricity_PJ ",
           "type": "quantitative"
         },
         "tooltip": [
           {"field": "year", "type": "nominal"},
-          {"aggregate": "sum", "field": "value", "type": "quantitative", "format": ",.0f", "title": "Total Value"}
+          {
+            "aggregate": "sum",
+            "field": "Total_Electricity_PJ ",
+            "type": "quantitative",
+            "format": ",.0f",
+            "title": "Total_Electricity_PJ "
+          }
         ]
       },
       "transform": [
-        {
-          "filter": "state_selection == null || datum.state == state_selection"
-        }
+        {"filter": "state_selection == null || datum.state == state_selection"}
       ]
     }
   ]
